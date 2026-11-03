@@ -7,6 +7,6 @@ spring:
     deepseek:
       api-key: ${DEEPSEEK_API_KEY}
       chat:
-        model: ${DEEPSEEK_MODEL:deepseek-v4-flash}
+        model: deepseek-v4-flash
     retry:
       max-attempts: 1
