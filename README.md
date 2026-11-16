@@ -29,6 +29,14 @@ version 使用 packaging=pom，不生成 JAR，也不放业务依赖。
 
 已有文本问答接口 `GET /ai/chat`。结构化输出练习见 [Spring AI 结构化输出入门（L3）](docs/Spring%20AI%20结构化输出入门（L3）.md)。
 
+## 数据库 SQL
+
+在现有 pgvector 数据库的查询窗口打开 [sql/](sql/) 中的文件，按阶段整份执行。已经初始化 G0 的学习库可以从后续阶段开始。
+
+- G0 新库依次执行 [g0-schema.sql](sql/g0-schema.sql) 和 [g0-seed.sql](sql/g0-seed.sql)。
+- G3 依次执行 [g3-schema.sql](sql/g3-schema.sql)、[g3-seed.sql](sql/g3-seed.sql)、[g3-vector-schema.sql](sql/g3-vector-schema.sql)。向量维度默认 1024，需要时在脚本内改成模型实际维度。执行后可以用 [g3-check.sql](sql/g3-check.sql) 核对。
+- G4 执行 [g4-schema.sql](sql/g4-schema.sql)，按需执行 [g4-seed.sql](sql/g4-seed.sql) 导入确认样例，用 [g4-check.sql](sql/g4-check.sql) 核对运行、草稿和待办。
+
 ## 构建
 
 在根目录执行：
