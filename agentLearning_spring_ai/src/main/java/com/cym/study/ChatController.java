@@ -19,4 +19,15 @@ public class ChatController {
             defaultValue = "只回复：学习环境已连接") String message) {
         return chatClient.prompt().user(message).call().content();
     }
+
+    @GetMapping("/ai/chat2") 
+    public String chat2(@RequestParam(name = "message",
+            defaultValue = "只回复：学习环境已连接") String message) {
+
+        return chatClient.prompt()
+                .system("你是学习助手，只用一句中文回答，不编造输入中没有的材料。")
+                .user(message)
+                .call().content();
+
+    }
 }
